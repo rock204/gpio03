@@ -6,7 +6,8 @@
         "radio": "*",
         "microphone": "*",
         "基礎統計量2": "github:rock204/basicstat2#0d2472692f083e589af5c225caa76d982a58a8a9",
-        "datalogger": "*"
+        "datalogger": "*",
+        "SSD1306_OLED": "github:tinkertanker/pxt-oled-ssd1306#v2.0.13"
     },
     "files": [
         "main.blocks",
