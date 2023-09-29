@@ -13,6 +13,7 @@ function get_rt () {
             basic.showNumber(rt)
             rt_data.push(rt)
             datalogger.log(datalogger.createCV("RT", rt))
+            OLED.drawLoading((kaisuu + 1) / n * 100)
             if (kaisuu >= n - 1) {
                 mode = 999
                 print_result()
@@ -23,7 +24,6 @@ function get_rt () {
                 mode = 1
             }
             kaisuu += 1
-            OLED.drawLoading(kaisuu / n * 100)
         }
     }
 }
@@ -45,8 +45,8 @@ function print_result () {
         serial.writeValue("  ", rt_data[カウンター])
     }
     serial.writeLine("----------------")
-    avrage = BasicStat.calculateMean(rt_data)
-    std = BasicStat.calculateES(rt_data)
+    avrage = Math.round(BasicStat.calculateMean(rt_data) * 1000) / 1000
+    std = Math.round(BasicStat.calculateES(rt_data) * 1000) / 1000
     basic.showNumber(avrage)
     serial.writeValue("average", avrage)
     serial.writeValue("std    ", std)
